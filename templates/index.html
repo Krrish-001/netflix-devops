@@ -91,14 +91,15 @@
     </div>
 
     <div class="section">
-        <h2>Top Picks</h2>
+        <h2>Trending Now</h2>
         <div class="movies">
-            <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
-            <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
-            <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
+            {% for movie in movies %}
+            <div class="movie">
+                <img src="{{ movie.image }}">
+            </div>
+            {% endfor %}
         </div>
     </div>
-
 </body>
 
 </html>
