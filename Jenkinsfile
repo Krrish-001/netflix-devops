@@ -6,7 +6,7 @@ pipeline {
         stage('Build & Deploy') {
             steps {
                 sh 'docker-compose down || true'
-                sh 'docker-compose up -d --build'
+                sh 'DOCKER_BUILDKIT=0 docker-compose up -d --build'
             }
         }
 
