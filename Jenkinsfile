@@ -1,13 +1,6 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Clone') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Krrish-001/netflix-devops.git'
-            }
-        }
-
         stage('Build & Deploy') {
             steps {
                 sh 'docker-compose down || true'
@@ -21,5 +14,5 @@ pipeline {
                 sh 'curl http://localhost:5050'
             }
         }
-    }
+
 }
