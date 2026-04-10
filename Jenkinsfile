@@ -1,6 +1,8 @@
 pipeline {
     agent any
 
+    stages {
+
         stage('Build & Deploy') {
             steps {
                 sh 'docker-compose down || true'
@@ -14,5 +16,5 @@ pipeline {
                 sh 'curl http://localhost:5050'
             }
         }
-
+    }
 }
