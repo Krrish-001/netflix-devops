@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'sleep 10'
-                sh 'curl http://localhost:5050'
+                sh 'curl http://host.docker.internal:5050'
             }
         }
     }
