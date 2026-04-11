@@ -17,7 +17,7 @@ pipeline {
 
                 docker build -t netflix-app .
 
-                docker run -d -p 8080:80 --name netflix-app netflix-app
+                docker run -d -p 8082:80 --name netflix-app netflix-app
                 '''
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 sh '''
                 sleep 10
-                curl -f http://localhost:8080 || exit 1
+                curl -f http://localhost:8082 || exit 1
                 '''
             }
         }
