@@ -13,7 +13,8 @@ pipeline {
              steps {
                  sh '''
                  docker-compose down || true
-                 DOCKER_BUILDKIT=0 docker-compose up -d --build
+                 docker rm -f $(docker ps -aq) || true
+                 docker-compose up -d --build
                  '''
             }
         }
