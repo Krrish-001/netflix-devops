@@ -61,7 +61,7 @@ export default function App() {
 
       {/* ROWS */}
       <div className="pb-20">
-        <MovieRow title="Trending Never" type="popular" />
+        <MovieRow title="Trending Neveeeer" type="popular" />
         <MovieRow title="Top Rated" type="top_rated" />
         <MovieRow title="Upcoming" type="upcoming" />
       </div>
