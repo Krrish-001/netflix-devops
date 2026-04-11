@@ -26,7 +26,7 @@ pipeline {
             steps {
                 sh '''
                 sleep 10
-                curl -f http://localhost:8082 || exit 1
+                curl -f http://host.docker.internal:8082 || exit 1
                 '''
             }
         }
