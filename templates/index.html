@@ -2,160 +2,33 @@
 <html>
 
 <head>
-    <title>Netflix Premium</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #141414;
-            color: white;
-        }
-
-        /* NAVBAR */
-        .navbar {
-            position: fixed;
-            width: 100%;
-            padding: 15px 50px;
-            display: flex;
-            align-items: center;
-            backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 100;
-        }
-
-        .logo {
-            color: #e50914;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        /* HERO */
-        .banner {
-            height: 90vh;
-            background: linear-gradient(to top, #141414, transparent),
-                url('https://images.unsplash.com/photo-1608889175123-8ee362201f81');
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-left: 60px;
-        }
-
-        .banner h1 {
-            font-size: 70px;
-            max-width: 600px;
-        }
-
-        .banner p {
-            max-width: 500px;
-            color: #ccc;
-        }
-
-        .buttons {
-            margin-top: 20px;
-        }
-
-        .btn {
-            padding: 12px 25px;
-            margin-right: 10px;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .play {
-            background: white;
-            color: black;
-        }
-
-        .info {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-
-        /* SECTION */
-        .section {
-            padding: 40px 50px;
-        }
-
-        .section h2 {
-            margin-bottom: 15px;
-        }
-
-        /* MOVIES */
-        .movies {
-            display: flex;
-            gap: 15px;
-            overflow-x: auto;
-        }
-
-        .movie {
-            min-width: 180px;
-            height: 270px;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .movie img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .movie:hover {
-            transform: scale(1.15);
-            z-index: 2;
-        }
-
-        .movies::-webkit-scrollbar {
-            display: none;
-        }
-    </style>
+    <title>Netflix Clone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
 
-    <div class="navbar">
-        <div class="logo">NETFLIX</div>
-    </div>
+    <nav class="navbar">
+        <h1>NETFLIX</h1>
+    </nav>
 
-    <div class="banner">
-        <h1>Unlimited Movies, TV Shows & More</h1>
-        <p>Watch anywhere. Cancel anytime.</p>
-
-        <div class="buttons">
-            <button class="btn play">▶ Play</button>
-            <button class="btn info">ℹ More Info</button>
+    <header class="banner">
+        <div class="banner-content">
+            <h1>Unlimited Movies, TV Shows & More</h1>
+            <p>Watch anywhere. Cancel anytime.</p>
+            <button>Play</button>
         </div>
-    </div>
+    </header>
 
-    <!-- SECTION 1 -->
-    <div class="section">
-        <h2>Trending Now</h2>
-        <div class="movies">
+    <section class="row">
+        <h2>Trending</h2>
+
+        <div class="row-posters">
             {% for movie in movies %}
-            <div class="movie">
-                <img src="{{ movie.image }}">
-            </div>
+            <img class="poster" src="{{ movie.image }}">
             {% endfor %}
         </div>
-    </div>
-
-    <!-- SECTION 2 -->
-    <div class="section">
-        <h2>Top Rated</h2>
-        <div class="movies">
-            {% for movie in movies %}
-            <div class="movie">
-                <img src="{{ movie.image }}">
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+    </section>
 
 </body>
 
