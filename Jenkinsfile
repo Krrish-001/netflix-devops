@@ -10,11 +10,11 @@ pipeline {
         }
 
         stage('Build & Deploy') {
-            steps {
-                sh '''
-                docker-compose down || true
-                docker-compose up -d --build
-                '''
+             steps {
+                 sh '''
+                 docker-compose down || true
+                 DOCKER_BUILDKIT=0 docker-compose up -d --build
+                 '''
             }
         }
 
