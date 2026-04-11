@@ -10,12 +10,15 @@ pipeline {
         }
 
         stage('Build & Deploy') {
-             steps {
-                 sh '''
-                 docker-compose down || true
-                 docker rm -f $(docker ps -aq) || true
-                 docker-compose up -d --build
-                 '''
+            steps {
+                sh '''
+                docker stop netflix-app || true
+                docker rm netflix-app || true
+
+                docker build -t netflix-app .
+
+                docker run -d -p 8080:80 --name netflix-app netflix-app
+                '''
             }
         }
 
@@ -23,7 +26,7 @@ pipeline {
             steps {
                 sh '''
                 sleep 10
-                curl -f http://localhost:5050 || exit 1
+                curl -f http://localhost:8080 || exit 1
                 '''
             }
         }
