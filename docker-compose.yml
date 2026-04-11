@@ -1,15 +1,7 @@
+version: "3"
+
 services:
   web:
     build: .
     ports:
-      - "5050:5000"
-    depends_on:
-      - db
-
-  db:
-    image: mysql:8.0
-    platform: linux/amd64
-    command: --default-authentication-plugin=mysql_native_password
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: netflix
+      - "5050:80"
