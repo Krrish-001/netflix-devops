@@ -11,7 +11,7 @@ export default function App() {
       <div className="flex justify-between items-center px-12 py-5 fixed w-full z-50 bg-gradient-to-b from-black">
 
         <div className="flex items-center gap-10">
-          <h1 className="text-red-600 text-3xl font-bold">NETFLIX LIVE DEMO</h1>
+          <h1 className="text-red-600 text-3xl font-bold">NETFLIX</h1>
 
           <div className="hidden md:flex gap-6 text-gray-300 text-sm">
             <p className="hover:text-white cursor-pointer">Home</p>
